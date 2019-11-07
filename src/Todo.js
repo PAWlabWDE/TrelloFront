@@ -38,13 +38,24 @@ export default  class Todo extends Component {
             list: prevState.list.concat(this.state.text),
             text: ''
         }))
+        //tutaj wyślij do serwera nową tablicę
+        fetch(API+"/addBoard", {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    boardName: this.state.text
+  })
+})
     }
     
 
   }
 
   handleChange(e) {
-    console.log("handleChange");
+    //console.log("handleChange");
     this.setState({
       text: e.target.value
     })
