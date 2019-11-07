@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BoardLink from "./BoardLink";
-import { Button} from 'react-bootstrap';
 import "./Todo.css";
 
 
@@ -44,12 +43,12 @@ export default  class Todo extends Component {
 
   render() {
     return (
-      <div>
-        <h1>BOARD LIST</h1>
+      <div class="center">
+        <h4>BOARD LIST</h4>
         <form onSubmit={this.handleSubmit}>
           <input  value={this.state.text} onChange={e => this.handleChange(e)} />
          <p/>
-         <button  class="btn btn-outline-danger">Add Board</button>
+         <button   class="btn btn-success">Add Board</button>
          <p/><p/>
           <ol>
             {this.state.list.map((item, index) => {
