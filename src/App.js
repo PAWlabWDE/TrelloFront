@@ -1,39 +1,23 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./BoardLink";
+import Todo from "./Todo";
 
 function App() {
   return (
     <Router>
-      <container
-        class="container"
-        role="main"
-        style={{
-          height: "100%",
-          position: "absolute",
-          left: "0px",
-          width: "100%",
-          overflow: "hidden"
-        }}
-      >
-       
+      <container class="container" role="main" >
+        <div class="header">IT will be inthe future xd</div>
 
-        <header class="header">HEADERR</header>
 
-        <nav class="nav">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-           
-          </ul>
-        </nav>
+        <div class="nav">
+
+          <Todo></Todo>
+
+        </div>
+
+
 
         <section class="section">
           <Switch>
@@ -47,11 +31,11 @@ function App() {
               {/* <Dashboard /> */}
             </Route>
 
-          
+
           </Switch>
         </section>
 
-        
+
       </container>
     </Router>
   );
