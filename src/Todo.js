@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import BoardLink from "./BoardLink";
 import "./Todo.css";
 
+/*
+Jak chcesz zoabczyć czy działą to urhcom w nastepujacy sposób
+win+r
+chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+i tam localhost:3000
+*/ 
 
+
+const API = 'http://localhost:3001';
+const DEFAULT_QUERY = '/getAllBoards';  
 export default  class Todo extends Component {
 
   constructor(props) {
@@ -15,7 +24,12 @@ export default  class Todo extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.chooseBoard = this.chooseBoard.bind(this);
   }
-
+  componentDidMount() {
+    console.log("wywyoalja siie");
+    fetch(API + DEFAULT_QUERY)
+    .then(response => response.json())
+    .then(data => {this.setState({ list: data });console.log(data);});
+  }
   handleSubmit(e) {
     e.preventDefault();
     console.log("handleSubmit");
@@ -25,6 +39,7 @@ export default  class Todo extends Component {
             text: ''
         }))
     }
+    
 
   }
 
@@ -40,8 +55,9 @@ export default  class Todo extends Component {
    
 
   }
-
+ 
   render() {
+
     return (
       <div class="center">
         <h4>BOARD LIST</h4>

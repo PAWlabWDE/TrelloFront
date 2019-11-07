@@ -6,7 +6,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 10% 20% 40% 20% 10%;
+    grid-template-rows: 10% 20% 700% ;
     grid-template-areas: "header" "nav" "section";
     text-align: center;
     height: 100%;
